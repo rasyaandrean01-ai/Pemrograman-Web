@@ -9,6 +9,7 @@ use App\Filament\Resources\Jabatans\Schemas\JabatanForm;
 use App\Filament\Resources\Jabatans\Tables\JabatansTable;
 use App\Models\Jabatan;
 use BackedEnum;
+use UnitEnum;
 use Filament\Resources\Resource;
 use Filament\Schemas\Schema;
 use Filament\Support\Icons\Heroicon;
@@ -19,6 +20,16 @@ class JabatanResource extends Resource
     protected static ?string $model = Jabatan::class;
 
     protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedRectangleStack;
+
+    protected static ?int $navigationSort = 2;
+
+    protected static UnitEnum|string|null $navigationGroup = 'Master Data';
+
+    protected static ?string $navigationLabel = 'Jabatan';
+
+    protected static ?string $modelLabel = 'Jabatan';
+
+    protected static ?string $pluralModelLabel = 'Jabatan';
 
     protected static ?string $recordTitleAttribute = 'nama_jabatan';
 
@@ -34,9 +45,7 @@ class JabatanResource extends Resource
 
     public static function getRelations(): array
     {
-        return [
-            //
-        ];
+        return [];
     }
 
     public static function getPages(): array
